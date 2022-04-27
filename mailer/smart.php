@@ -31,10 +31,10 @@ $mail->isHTML(true);                                  // Set email format to HTM
 
 $mail->Subject = 'Данные';
 $mail->Body    = '
-		Пользователь оставил сообщение <br> 
+	Пользователь оставил сообщение <br> 
 	Имя: ' . $name . ' <br>
 	E-mail: ' . $email . '<br>
-	Сообщение: ' . $comment . ';
+	Сообщение: ' . $comment . '';
 
 if(!$mail->send()) {
 	return false;
