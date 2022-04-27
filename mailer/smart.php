@@ -3,7 +3,7 @@
 $name = $_POST['name'];
 //$phone = $_POST['phone'];
 $email = $_POST['email'];
-$comment = $_POST ['comment'];
+$comment = $_POST['comment'];
 
 require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
@@ -25,16 +25,16 @@ $mail->addAddress('it.kucherov@gmail.com');     // Add a recipient
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
-//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Данные';
 $mail->Body    = '
-	Пользователь оставил сообщение <br> 
+		Пользователь прислал сообщение <br> 
 	Имя: ' . $name . ' <br>
-	E-mail: ' . $email . '<br>
-	Сообщение: ' . $comment . '';
+	Сообщение: ' . $comment . '<br>
+	E-mail: ' . $email . '';
 
 if(!$mail->send()) {
 	return false;
